@@ -85,6 +85,28 @@ def list():
         response.flash = T('Number of items: %s') % len(records)
     return dict(form=form, title=title, list=records)
 
+
+@auth.requires_membership("manager")
+def list_low():
+    import datetime
+
+    # The base query to fetch all records
+    query = db.inventory.id > 0
+
+    records = db((db.inventory.id>0) & (query)).select(orderby=db.inventory.item)
+    rows = []
+    for r in records:
+        if r.amount_closed3<r.amount_limit3 or r.amount_closed<r.amount_limit1:
+            rows.append(r)
+
+
+    title = T('Laboratory Inventory')
+
+    if not response.flash:
+        response.flash = T('Number of items: %s') % len(rows)
+    return dict(title=title, list=rows)
+
+
 @auth.requires_login()
 def show():
     record = db.inventory[request.args[0]]

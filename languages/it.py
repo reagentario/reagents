@@ -386,6 +386,7 @@
 'User Alias Name': 'User Alias Name',
 'User ID': 'ID Utente',
 'User List': 'User List',
+'User Management': 'User Management',
 'Username': 'Username',
 'Username already taken': 'Username already taken',
 'Username retrieve': 'Username retrieve',

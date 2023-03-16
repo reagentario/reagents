@@ -40,6 +40,7 @@ if auth.has_membership(auth.id_group('manager')):
             (T('Sublocations List'), False, URL('management','list_sublocations'), []),
             (T('View Sublocation content'), False, URL(c='inventory', r=request, f='sub_locations_content_list', args=[]), []),
             (T('Sublocation Add'), False, URL('management','add_sublocation'), []),
+            (T('View low quantity'), False, URL('inventory','list_low'), []),
             (T('View Orders'), False, URL('management','view_orders'), []),
             (T('Show item logs'), False, URL(c='logs', r=request, f='show_logs', args="0"), []),
             (T('Search item logs'), False, URL(c='logs', r=request, f='search_logs', args="0"), []),
@@ -51,8 +52,8 @@ if auth.has_membership(auth.id_group('supermanager')):
         (T('SuperManagement'), False, '#', [
             (T('User List'), False, URL('management','list_users'), []),
             (T('User Add'), False, URL('management','add_user'), []),
-            (T('Edit department inventory logs'), False, URL(c='management', r=request, f='edit_logs'), []),
-            (T('Edit department inventory'), False, URL(c='management', r=request, f='edit'), []),
+            (T('Edit inventory logs'), False, URL(c='management', r=request, f='edit_logs'), []),
+            (T('Edit inventory'), False, URL(c='management', r=request, f='edit'), []),
         ]),
     ]
 

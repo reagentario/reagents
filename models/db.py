@@ -150,6 +150,7 @@ else:
 
 
 auth.settings.actions_disabled.append('register')
+auth.settings.actions_disabled.append('retrieve_password')
 
 # -------------------------------------------------------------------------
 # configure email

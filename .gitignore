@@ -1,0 +1,7 @@
+*.pyc
+cache/
+errors/
+databases/
+progress.log
+sessions/
+private/

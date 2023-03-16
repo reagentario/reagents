@@ -1,0 +1,45 @@
+BUGS:
+
+Howto IMPORT FROM EXCEL:
+
+file esportato come csv da libreoffice (separatore di campo ","  separatore di testo """  e poi:
+
+LOAD DATA LOCAL INFILE '/var/www/web2py/applications/reagents/inventory.csv' INTO TABLE inventory FIELDS ENCLOSED BY '"' TERMINATED BY ',' LINES TERMINATED BY '\n' (id,item,vendor,lot,catalog_number,@arrival_date,@expiry_date,department,sub_location,id_number,amount,unit_size,notes,to_be_ordered) SET arrival_date = STR_TO_DATE(@arrival_date, '%d/%m/%Y'),     expiry_date = STR_TO_DATE(@expiry_date, '%d/%m/%Y');
+
+
+
+TODO:
+
+aggiungere un campo scorta minima con alert se viene superato
+aggiungere posizioni:
+  location 1
+  location 2
+  location 3 (magazzino, fisso per tutti
+aggiungere pulsanti per:
+  spostare da posizione 3 a posizione 1 (confezione chiusa3 -> chiusa1)
+  spostare da posizione 1 a posizione 2 (confezione chiusa1 -> chiusa2)
+  aprire in posizione 2 (confezione chiusa2 -> aperta2)
+  aprire in posizione 1 (confezione chiusa1 -> aperta1)
+fare in modo che i pulsanti richiedano una quantita' da spostare
+aggiungere tutti i controlli per calcolare che ci siano le quantita' richieste da aprire/spostare prima di fare spostamento
+editare le quantita' con form a cui possibile aggiungere nota per log
+
+
+
+studia come abbellire i form e le tabelle nelle views con i CSS
+
+si deve poter stampare la lista dei reattivi in formato A4 per ogni armadio
+  https://pyfpdf.readthedocs.io/en/latest/Web2Py/index.html
+
+	https://www.reportbro.com/docs/setup
+	https://jugad2.blogspot.com/2015/01/publish-databases-to-pdf-with-pydal-and.html
+	http://www.blog.pythonlibrary.org/2018/06/05/creating-pdfs-with-pyfpdf-and-python/
+
+
+
+APPUNTI PER LOGGING:
+
+http://www.web2pyslices.com/slice/show/1416/logging
+https://github.com/web2py/web2py/blob/master/examples/logging.example.conf
+https://groups.google.com/forum/#!topic/web2py/I46yrfX_Bww
+http://web2py.com/books/default/chapter/29/06#Record-versioning

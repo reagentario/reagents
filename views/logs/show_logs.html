@@ -1,0 +1,45 @@
+{{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{=URL('static', 'css/tables.css')}}"/>
+<h2>{{=title}}</h2>
+
+{{if pager==1:}}
+{{if int(request.vars.page)==1:}}
+<a href={{=URL(args=request.args[0], vars={'page':int(request.vars.page)+1})}}>Next results</a>
+{{else:}}
+<a href={{=URL(args=request.args[0], vars={'page':int(request.vars.page)-1})}}>Previous results</a> |
+<a href={{=URL(args=request.args[0], vars={'page':int(request.vars.page)+1})}}>Next results</a>
+{{pass}}
+{{pass}}
+
+<br />
+
+<table class="table-1">
+<th>{{=T('Date')}}</th>
+<th>{{=T('User')}}</th>
+<th>{{=T('ItemID')}}</th>
+<th>{{=T('Item Name')}}</th>
+<th>{{=T('Details')}}</th>
+
+{{def reformat(text): return XML(text.replace('--', '<br />'))}}
+
+{{for row in rows:}}
+<tr>
+<td>{{=row.event_time}}</td>
+<td>{{=row.username}}</td>
+<td>{{=row.itemid}}</td>
+<td>{{=row.item}}</td>
+<td>{{=reformat(row.event_details)}}</td>
+</tr>
+{{pass}}
+</table>
+{{if pager==1:}}
+{{if int(request.vars.page)==1:}}
+<a href={{=URL(args=request.args[0], vars={'page':int(request.vars.page)+1})}}>Next results</a>
+{{else:}}
+<a href={{=URL(args=request.args[0], vars={'page':int(request.vars.page)-1})}}>Previous results</a> |
+<a href={{=URL(args=request.args[0], vars={'page':int(request.vars.page)+1})}}>Next results</a>
+{{pass}}
+{{pass}}
+<br />
+<br />
+<br />

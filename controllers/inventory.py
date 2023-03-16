@@ -16,17 +16,16 @@ def sub_locations_content_list():
     query = (db.sublocations.id > 0)
     db.inventory.sub_location.requires = IS_IN_DB(db(query), db.sublocations.sub_location_short, '%(sub_location_short)s - %(sub_location)s')
 
-    form=SQLFORM(db.inventory,
-                fields = ['sub_location'],
+    form = SQLFORM.factory(
+                Field("sub_location", label=(T("Location")), requires=IS_EMPTY_OR(IS_IN_DB(db(query), db.sublocations.sub_location_short, '%(sub_location_short)s - %(sub_location)s',multiple=False))),
                 formstyle='divs',
-                _class='string',
-                submit_button=T("Search"),
+                submit_button="Search",
                 )
 
     if form.accepts(request.vars,session):
         sub_location = form.vars.sub_location
         sub_location_exp = db(db.sublocations.sub_location_short==sub_location).select(db.sublocations.sub_location)
-        rows = db(db.inventory.sub_location==sub_location).select(orderby=db.inventory.item, groupby=db.inventory.item)
+        rows = db(db.inventory.sub_location==sub_location).select(orderby=db.inventory.item) #,groupby=db.inventory.item)
         title = T('Sub Location: %s') % sub_location_exp[0].sub_location
     elif form.errors:
         session.flash=T('there are errors in submitted form')
@@ -36,8 +35,8 @@ def sub_locations_content_list():
         title = ""
         rows = []
 
-    headers = [T("Name"), "ID"]
-    fields = ['item']
+    headers = [T("Name"), T("Size")]
+    fields = ['item', 'unit_size']
 
     table = TABLE(THEAD(TR(*[B(header) for header in headers])),
                   TBODY(*[TR(*[TD(row[field]) for field in fields]) \
@@ -128,6 +127,7 @@ def show():
 
 @auth.requires_login()
 def plus():
+    # not used, see move instead
     record = db.inventory[request.args[0]]
     db(db.inventory.id==request.args[0]).update(amount_closed=db.inventory.amount_closed +1)
     logger.info('%s has added 1 unit of id %s -- name: %s' % (user_alias_name,
@@ -137,6 +137,7 @@ def plus():
     session.flash = T('Item amount closed increased by 1 unit')
     redirect(URL(r=request, f='show', args=request.args[0]))
     return
+
 
 @auth.requires_login()
 def minus():
@@ -149,10 +150,11 @@ def minus():
     logger.info('%s has removed 1 unit of id %s -- name: %s' % (user_alias_name,
                 request.args[0], record['item']))
     add_log(itemid='%s' % request.args[0], record=record,
-                    event_details='removed 1 unit', category='A')
+                    event_details='removed 1 unit from lab', category='A')
     session.flash = T('Item amount decreased by 1 unit')
     redirect(URL(r=request, f='show', args=request.args[0]))
     return
+
 
 @auth.requires_login()
 def move():
@@ -166,10 +168,11 @@ def move():
     logger.info('%s has moved from warehouse 1 unit of id %s -- name: %s' % (user_alias_name,
                 request.args[0], record['item']))
     add_log(itemid='%s' % request.args[0], record=record,
-                    event_details='moved 1 unit', category='A')
+                    event_details='moved 1 unit from warehouse to lab', category='A')
     session.flash = T('Moved 1 unit from warehouse to lab')
     redirect(URL(r=request, f='show', args=request.args[0]))
     return
+
 
 @auth.requires_login()
 def add():
@@ -178,11 +181,10 @@ def add():
     logger.info('%s has added to warehouse 1 unit of id %s -- name: %s' % (user_alias_name,
                 request.args[0], record['item']))
     add_log(itemid='%s' % request.args[0], record=record,
-                    event_details='added 1 unit', category='A')
+                    event_details='added 1 unit to warehouse', category='A')
     session.flash = T('Added 1 unit to warehouse')
     redirect(URL(r=request, f='show', args=request.args[0]))
     return
-
 
 
 @auth.requires_login()
@@ -196,6 +198,7 @@ def order():
     session.flash = T('1 unit requested')
     redirect(URL(r=request, f='show', args=request.args[0]))
     return
+
 
 @auth.requires_login()
 def log_note():
@@ -214,7 +217,6 @@ def log_note():
     else:
         response.flash = 'please fill out the form'
     return dict(title=T('Add note'), form=form, record=record)
-
 
 
 @auth.requires_membership("manager")

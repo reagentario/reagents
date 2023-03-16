@@ -5,7 +5,7 @@ import os,sys
 
 now = datetime.datetime.now()
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def insert():
     # form to insert a new item
     query = (db.sublocations.id > 0)
@@ -29,7 +29,7 @@ def insert():
         response.flash=T('please fill out the form')
     return dict(title=T("New item addition"), form=form)
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def copy():
     # create a new item starting from an existing ones
     row=db(db.inventory.id==request.args[0]).select()[0]

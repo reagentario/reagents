@@ -10,6 +10,7 @@ def insert():
     # form to insert a new item
     query = (db.sublocations.id > 0)
     db.inventory.sub_location.requires = IS_IN_DB(db(query), db.sublocations.sub_location_short, '%(sub_location_short)s - %(sub_location)s')
+    db.inventory.sub_location2.requires = IS_IN_DB(db(query), db.sublocations.sub_location_short, '%(sub_location_short)s - %(sub_location)s')
 
     db.inventory.to_be_ordered.readable = db.inventory.to_be_ordered.writable = False
 

@@ -24,7 +24,7 @@ if request.global_settings.web2py_version < "2.15.5":
 # -------------------------------------------------------------------------
 # once in production, remove reload=True to gain full speed
 # -------------------------------------------------------------------------
-configuration = AppConfig(reload=True)
+configuration = AppConfig(reload=False)
 
 if not request.env.web2py_runtime_gae:
     # ---------------------------------------------------------------------

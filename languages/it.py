@@ -59,6 +59,7 @@
 'Alias': 'Alias',
 'Alias Name': 'Alias Name',
 'All Logs': 'Registro completo',
+'Amount': 'Quantità',
 'Amount Closed': 'Quantità chiusa',
 'amount closed increased by 1 unit': 'Quantità chiusa aumentata di 1 unità',
 'Amount in secondary location': 'Quantità nella posizione secondaria',

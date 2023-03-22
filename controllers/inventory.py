@@ -35,8 +35,8 @@ def sub_locations_content_list():
         title = ""
         rows = []
 
-    headers = [T("Name"), T("Size")]
-    fields = ['item', 'unit_size']
+    headers = [T("Name"), T("Amount"), T("Item Size")]
+    fields = ['item', 'amount_closed', 'unit_size']
 
     table = TABLE(THEAD(TR(*[B(header) for header in headers])),
                   TBODY(*[TR(*[TD(row[field]) for field in fields]) \

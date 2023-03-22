@@ -195,6 +195,7 @@
 'Invalid reset password': 'Invalid reset password',
 'Invalid user': 'Invalid user',
 'Invalid username': 'Invalid username',
+'Inventory': 'Inventory',
 'Invitation to join %(site)s': 'Invitation to join %(site)s',
 'Item': 'Articolo',
 'Item amount closed': "Quantità dell'articolo (chiusa)",

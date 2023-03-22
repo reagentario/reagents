@@ -28,9 +28,11 @@
       <li>{{=T('You can modify this application and adapt it to your needs')}}</li>
       -->
     </ol>
-    {{if auth.has_membership("admin"):}}
+
     <div class="jumbotron jumbotron-fluid" style="padding:30px;word-wrap:break-word;">
       <div class="container center">
+        <a class="btn btn-secondary" href="{{=URL(c='inventory', r=request, f='list', args="0")}}">{{=T('Laboratory Inventory')}}</a>
+        {{if auth.has_membership("admin"):}}
         <!--
         <a class="btn btn-primary" href="{{=URL('admin','default','index')}}">
           <i class="fa fa-cog"></i>
@@ -39,9 +41,9 @@
         <a class="btn btn-secondary" href="{{=URL('default','grid/auth_user')}}">{{=T('User Management')}}</a>
         -->
         <a class="btn btn-secondary" href="http://web2py.com/book">{{=T('Documentation')}}</a>
+        {{pass}}
       </div>
     </div>
-    {{pass}}
     {{elif 'content' in globals():}}
     {{=content}}
     {{else:}}

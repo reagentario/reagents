@@ -48,7 +48,7 @@
     border: solid 1px #000000;
     border-collapse: collapse;
     text-align: center;
-    padding: 3px 3px 3px 3px;
+    padding: 30px 3px 3px 3px;
 }
 
 .table-2 th {
@@ -74,6 +74,7 @@
 .table-2 td {
     border: solid 1px #000000;
     border-collapse: collapse;
+    padding: 3px 5px 3px 5px;
     text-align: center;
 }
 

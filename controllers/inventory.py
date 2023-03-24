@@ -114,14 +114,16 @@ def show():
 
     rows = []
     for f in db.inventory.fields:
-        if record[f] == None:
+        if db.inventory[f].label == "Id":
+            pass
+        elif record[f] == None:
             pass
             #rows.append(TR(TD(db.inventory[f].label, _id="nowrap"), TD((""), _align="middle")))
         else:
             rows.append(TR(TD(db.inventory[f].label, _id="nowrap"), TD(record[f], _align="middle")))
 
     body = TBODY(*rows)
-    table = TABLE(*[body], _class='table-1')
+    table = TABLE(*[body], _class='table-4')
 
     return dict(title=T("Item details"), table=table, record=record)
 

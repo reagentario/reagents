@@ -33,6 +33,7 @@
 .table-1 td {
     border: solid 1px #000000;
     color: #333;
+    padding: 5px;
     text-align: center;
 }
 
@@ -81,3 +82,34 @@
     border: solid 0px #000000;
     margin: 20px;
 }
+
+.table-4 {
+    table-layout: auto;
+    border: solid 1px #000000;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 30px;
+}
+
+.table-4 th {
+    background-color: #DDDDDD;
+    border: solid 1px #000000;
+    border-right: solid 1px #000000;
+    color: #000000;
+    text-align: center;
+}
+
+.table-4 td {
+    border: solid 1px #000000;
+    color: #333;
+    height: 40px;
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table-4 tr {
+    border: solid 1px #000000;
+    color: #000000;
+}
+

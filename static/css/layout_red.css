@@ -1,6 +1,6 @@
 body { margin:0; font-size:0.9em; line-height:20px; background:url(../images/body_bckg.jpg) repeat-x #ffffff; font-family: "Myriad Pro", "Trebuchet MS", Arial;}
 a { color:#0000FF;}
-a:hover { text-decoration:none;}
+a:hover { text-decoration:none; color:#FF5220;}
 
 #header { background:url(../images/background-02.jpg) repeat-x; height:96px}
 #logo { padding:30px 0 0 40px; height:36px; }

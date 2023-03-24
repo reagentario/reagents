@@ -15,7 +15,6 @@ pass
 <br>
 
 <table class="table-2">
-<th>id</th>
 <th>{{=T('Item')}}</th>
 <th>{{=T('Location')}}</th>
 <th>{{=T('Amount Open')}}</th>
@@ -32,8 +31,7 @@ pass
 {{else:}}
 <tr style="color:black">
 {{pass}}
-<td>{{=A(row.id, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
-<td style="text-align:left">{{=row.item}}</td>
+<td style="text-align:left">{{=A(row.item, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
 <td>{{=row.sub_location}}</td>
 <td>{{=row.amount_open}}</td>
 <td>{{=row.amount_closed}}</td>

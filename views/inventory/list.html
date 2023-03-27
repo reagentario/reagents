@@ -17,9 +17,7 @@ pass
 <table class="table-2">
 <th>{{=T('Item')}}</th>
 <th>{{=T('Location')}}</th>
-<th>{{=T('Amount Open')}}</th>
 <th>{{=T('Amount Closed')}}</th>
-<th>{{=T('Amount in secondary location')}}</th>
 <th>{{=T('Amount in warehouse')}}</th>
 <th>{{=T('Item Size')}}</th>
 
@@ -33,9 +31,7 @@ pass
 {{pass}}
 <td style="text-align:left">{{=A(row.item, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
 <td>{{=row.sub_location}}</td>
-<td>{{=row.amount_open}}</td>
 <td>{{=row.amount_closed}}</td>
-<td>{{=row.amount_open2}}</td>
 <td>{{=row.amount_closed3}}</td>
 <td>{{=row.unit_size}}</td>
 {{pass}}

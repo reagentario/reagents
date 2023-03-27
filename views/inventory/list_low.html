@@ -16,9 +16,7 @@ pass
 <th>id</th>
 <th>{{=T('Item')}}</th>
 <th>{{=T('Location')}}</th>
-<th>{{=T('Amount Open')}}</th>
 <th>{{=T('Amount Closed')}}</th>
-<th>{{=T('Amount in secondary location')}}</th>
 <th>{{=T('Amount in warehouse')}}</th>
 <th>{{=T('Minimum limit in lab')}}</th>
 <th>{{=T('Minimum limit in warehouse')}}</th>
@@ -35,9 +33,7 @@ pass
 <td>{{=A(row.id, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
 <td style="text-align:left">{{=row.item}}</td>
 <td>{{=row.sub_location}}</td>
-<td>{{=row.amount_open}}</td>
 <td>{{=row.amount_closed}}</td>
-<td>{{=row.amount_open2}}</td>
 <td>{{=row.amount_closed3}}</td>
 <td>{{=row.amount_limit1}}</td>
 <td>{{=row.amount_limit3}}</td>

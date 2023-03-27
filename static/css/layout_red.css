@@ -18,7 +18,7 @@ a:hover { text-decoration:none; color:#FF5220;}
 .red { color:#FF5220;}
 #content p { border-bottom:15px solid #fafafa; padding-bottom:20px;}
 
-#footer {background:url(../images/footer_bckg.jpg) repeat-x #000000; height:102px;}
+#footer {background:url(../images/footer_bckg_blu.jpg) repeat-x #000000; height:102px;}
 #left_footer { float:left; padding:40px 0 0 60px; text-transform:uppercase; color:#FFFFFF; font-weight:bold; font-size:11px;}
 #left_footer a { color:#FFFFFF;}
 #left_footer a:hover { text-decoration:none;}

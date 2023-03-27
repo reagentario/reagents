@@ -2,7 +2,7 @@ body { margin:0; font-size:0.9em; line-height:20px; background:url(../images/bod
 a { color:#0000FF;}
 a:hover { text-decoration:none; color:#FF5220;}
 
-#header { background:url(../images/background-02.jpg) repeat-x; height:96px}
+#header { background:url(../images/chemicals03.png) repeat-x; height:156px}
 #logo { padding:30px 0 0 40px; height:36px; }
 #logo a{ color:#FFFFFF; text-decoration:none; font-weight:bold; height:36px; font-size:26px; text-transform:uppercase;}
 #logo a:hover { }

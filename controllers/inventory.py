@@ -129,14 +129,13 @@ def show():
 
 @auth.requires_login()
 def plus():
-    # not used, see move instead
     record = db.inventory[request.args[0]]
     db(db.inventory.id==request.args[0]).update(amount_closed=db.inventory.amount_closed +1)
     logger.info('%s has added 1 unit of id %s -- name: %s' % (user_alias_name,
                 request.args[0], record['item']))
     add_log(itemid='%s' % request.args[0], record=record,
                     event_details='added 1 unit', category='A')
-    session.flash = T('Item amount closed increased by 1 unit')
+    session.flash = T('Item amount increased by 1 unit')
     redirect(URL(r=request, f='show', args=request.args[0]))
     return
 

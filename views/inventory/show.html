@@ -13,25 +13,29 @@
 <td>
 <table class="table-1">
 <tr >
-<td>{{=A(IMG(_src=URL('static/images','plus.png'), _alt="add"), _href=URL(c='inventory', r=request, f='move', args=record.id))}}</td>
+<td>{{=A(IMG(_src=URL('static/images','box_cart.png'), _alt="add"), _href=URL(c='inventory', r=request, f='move', args=record.id))}}</td>
 <td>{{=A(T("Add 1 item from warehouse"),_href=URL(c='inventory', r=request, f='move', args=record.id))}}</td>
+</tr>
+<tr >
+<td>{{=A(IMG(_src=URL('static/images','box_closed_add2.png'), _alt="add"), _href=URL(c='inventory', r=request, f='plus', args=record.id))}}</td>
+<td>{{=A(T("Add 1 item delivered"),_href=URL(c='inventory', r=request, f='move', args=record.id))}}</td>
 </tr>
 <tr>
 <td>{{=A(IMG(_src=URL('static/images','minus.png'), _alt="remove"), _href=URL(c='inventory', r=request, f='minus', args=record.id))}}</td>
 <td>{{=A(T("Remove 1 item from lab"),_href=URL(c='inventory', r=request, f='minus', args=record.id))}}</td>
+</tr>
+<tr>
+<td>{{=A(IMG(_src=URL('static/images','track-plus.png'), _alt="update"), _href=URL(c='inventory', r=request, f='add', args=record.id))}}</td>
+<td>{{=A(T("Add 1 item to warehouse"),_href=URL(c='inventory', r=request, f='add', args=record.id))}}</td>
+</tr>
 <tr>
 <td>{{=A(IMG(_src=URL('static/images','shopping_cart.png'), _alt="order"), _href=URL(c='inventory', r=request, f='order', args=record.id))}}</td>
 <td>{{=A(T("Order"),_href=URL(c='inventory', r=request, f='order', args=record.id))}}</td>
 </tr>
 {{if auth.has_membership("manager"):}}
 <tr>
-<td>{{=A(IMG(_src=URL('static/images','new.png'), _alt="update"), _href=URL(c='inventory', r=request, f='add', args=record.id))}}</td>
-<td>{{=A(T("Add 1 item to warehouse"),_href=URL(c='inventory', r=request, f='add', args=record.id))}}</td>
-</tr>
-<tr>
 <td>{{=A(IMG(_src=URL('static/images','edit.png'), _alt="update"), _href=URL(c='management', r=request, f='update', args=record.id))}}</td>
 <td>{{=A(T("Modify"),_href=URL(c='management', r=request, f='update', args=record.id))}}</td>
-</tr>
 </tr>
 <tr>
 <td>{{=A(IMG(_src=URL('static/images','log.png'), _alt="show_log"), _href=URL(c='logs', r=request, f='show_logs', args=record.id))}}</td>

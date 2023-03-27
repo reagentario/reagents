@@ -211,7 +211,7 @@
 'Item name': 'Item name',
 'Item Size': 'Dimensione confezione',
 'ItemID': 'ItemID',
-'Items': 'Articoli',
+'Items': 'Reagenti',
 'JSON': 'JSON',
 'JSON export of visible columns': 'JSON export of visible columns',
 'Key': 'Chiave',

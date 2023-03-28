@@ -201,6 +201,7 @@
 'Item': 'Articolo',
 'Item amount closed': "Quantità dell'articolo",
 'Item amount decreased by 1 unit': 'Quantità diminuita di 1 unità',
+'Item amount increased by 1 unit': 'Quantità aumentatata di 1 unità',
 'Item amount in tertiary location': 'Quantità a magazzino',
 'Item amount in warehouse': 'Quantità a magazzino',
 'Item amount open': "Quantità dell'articolo (aperta)",

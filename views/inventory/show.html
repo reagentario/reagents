@@ -18,7 +18,7 @@
 </tr>
 <tr >
 <td>{{=A(IMG(_src=URL('static/images','box_closed_add2.png'), _alt="add"), _href=URL(c='inventory', r=request, f='plus', args=record.id))}}</td>
-<td>{{=A(T("Add 1 item delivered"),_href=URL(c='inventory', r=request, f='move', args=record.id))}}</td>
+<td>{{=A(T("Add 1 item delivered"),_href=URL(c='inventory', r=request, f='plus', args=record.id))}}</td>
 </tr>
 <tr>
 <td>{{=A(IMG(_src=URL('static/images','minus.png'), _alt="remove"), _href=URL(c='inventory', r=request, f='minus', args=record.id))}}</td>

@@ -117,8 +117,7 @@ def show():
         if db.inventory[f].label == "Id":
             pass
         elif record[f] == None:
-            pass
-            #rows.append(TR(TD(db.inventory[f].label, _id="nowrap"), TD((""), _align="middle")))
+            rows.append(TR(TD(db.inventory[f].label, _id="nowrap"), TD((""), _align="middle")))
         else:
             rows.append(TR(TD(db.inventory[f].label, _id="nowrap"), TD(record[f], _align="middle")))
 

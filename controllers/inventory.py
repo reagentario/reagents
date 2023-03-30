@@ -95,7 +95,7 @@ def list_low():
     records = db((db.inventory.id>0) & (query)).select(orderby=db.inventory.item)
     rows = []
     for r in records:
-        if r.amount_closed3<r.amount_limit3 or r.amount_closed<r.amount_limit1:
+        if (r.amount_closed+r.amount_closed3)<r.amount_limit1:
             rows.append(r)
 
 

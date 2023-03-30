@@ -22,9 +22,7 @@ pass
 <th>{{=T('Item Size')}}</th>
 
 {{for row in list:}}
-{{if row.amount_closed<row.amount_limit1:}}
-<tr style="color:red">
-{{elif row.amount_closed3<row.amount_limit3:}}
+{{if (row.amount_closed+row.amount_closed3)<row.amount_limit1:}}
 <tr style="color:red">
 {{else:}}
 <tr style="color:black">

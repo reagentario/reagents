@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 {
-'!=': '!=',
 '!langcode!': 'it',
 '!langname!': 'Italiano',
 '"update" is an optional expression like "field1=\'newvalue\'". You cannot update or delete the results of a JOIN': '"update" è un\'espressione opzionale come "campo1=\'nuovo valore\'". Non si può fare "update" o "delete" dei risultati di un JOIN ',
@@ -63,6 +62,7 @@
 'Amount': 'Quantità',
 'Amount Closed': 'Quantità',
 'amount closed increased by 1 unit': 'Quantità aumentata di 1 unità',
+'Amount in laboratory': 'Quantità in laboratorio',
 'Amount in secondary location': 'Quantità nella posizione secondaria',
 'Amount in warehouse': 'Quantità in magazzino',
 'Amount Open': 'Quantità aperta',
@@ -201,9 +201,9 @@
 'Item': 'Articolo',
 'Item amount closed': "Quantità dell'articolo",
 'Item amount decreased by 1 unit': 'Quantità diminuita di 1 unità',
-'Item amount increased by 1 unit': 'Quantità aumentatata di 1 unità',
 'Item amount in tertiary location': 'Quantità a magazzino',
 'Item amount in warehouse': 'Quantità a magazzino',
+'Item amount increased by 1 unit': 'Quantità aumentatata di 1 unità',
 'Item amount open': "Quantità dell'articolo (aperta)",
 'Item amount open in secondary location': "Quantità dell'articolo nella posizione secondaria",
 'Item details': 'Dettagli articolo',
@@ -241,6 +241,7 @@
 'Management': 'Management',
 'Memberships': 'Memberships',
 'Menu Model': 'Menu Modelli',
+'Minimum limit': 'Quantità minima',
 'Minimum limit in lab': 'Quantità minima in lab',
 'Minimum limit in warehouse': 'Quantità minima in magazzino',
 'Modify': 'Modifica',

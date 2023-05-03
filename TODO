@@ -10,21 +10,12 @@ LOAD DATA LOCAL INFILE '/var/www/web2py/applications/reagents/inventory.csv' INT
 
 TODO:
 
-aggiungere un campo scorta minima con alert se viene superato
-aggiungere posizioni:
-  location 1
-  location 2
-  location 3 (magazzino, fisso per tutti
-aggiungere pulsanti per:
-  spostare da posizione 3 a posizione 1 (confezione chiusa3 -> chiusa1)
-  spostare da posizione 1 a posizione 2 (confezione chiusa1 -> chiusa2)
-  aprire in posizione 2 (confezione chiusa2 -> aperta2)
-  aprire in posizione 1 (confezione chiusa1 -> aperta1)
-fare in modo che i pulsanti richiedano una quantita' da spostare
-aggiungere tutti i controlli per calcolare che ci siano le quantita' richieste da aprire/spostare prima di fare spostamento
-editare le quantita' con form a cui possibile aggiungere nota per log
 
+togliere campo scorta minima magazzino
 
+aggiungere un campo per definire se un reattivo non e' piu' in uso ma lo si vuole tenere nel db, da visualizzare in list, ma non in list_low
+
+migliorare la parte grafica
 
 studia come abbellire i form e le tabelle nelle views con i CSS
 
@@ -35,6 +26,8 @@ si deve poter stampare la lista dei reattivi in formato A4 per ogni armadio
 	https://jugad2.blogspot.com/2015/01/publish-databases-to-pdf-with-pydal-and.html
 	http://www.blog.pythonlibrary.org/2018/06/05/creating-pdfs-with-pyfpdf-and-python/
 
+plugin report pdf:
+https://github.com/lucasdavila/web2py-appreport/wiki/Docs-and-examples
 
 
 APPUNTI PER LOGGING:

@@ -15,10 +15,9 @@ pass
 <table class="table-2">
 <th>{{=T('Item')}}</th>
 <th>{{=T('Location')}}</th>
-<th>{{=T('Amount')}}</th>
+<th>{{=T('Amount in laboratory')}}</th>
 <th>{{=T('Amount in warehouse')}}</th>
-<th>{{=T('Minimum limit in lab')}}</th>
-<th>{{=T('Minimum limit in warehouse')}}</th>
+<th>{{=T('Minimum limit')}}</th>
 <th>{{=T('Item Size')}}</th>
 
 {{for row in list:}}
@@ -32,7 +31,6 @@ pass
 <td>{{=row.amount_closed}}</td>
 <td>{{=row.amount_closed3}}</td>
 <td>{{=row.amount_limit1}}</td>
-<td>{{=row.amount_limit3}}</td>
 <td>{{=row.unit_size}}</td>
 {{pass}}
 </tr>

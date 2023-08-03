@@ -27,6 +27,7 @@ def edit_logs():
     grid = SQLFORM.grid(db.applog.id>0, paginate=25)
     return dict(grid=grid)
 
+@auth.requires_membership("supermanager")
 def list_users():
     btn = lambda row: A("Edit", _href=URL('manage_user', args=row.auth_user.id))
     db.auth_user.edit = Field.Virtual(btn)
@@ -40,7 +41,7 @@ def list_users():
     title = T('User List')
     return dict(title=title, table=table)
 
-@auth.requires_membership("manager")
+@auth.requires_membership("supermanager")
 def add_user():
     form = SQLFORM(db.auth_user)
     if form.accepts(request.vars,session):
@@ -157,7 +158,7 @@ def reset_order():
     redirect(URL(r=request, f='view_orders'))
     return
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def update():
     # update an existing item
     record = db.inventory(request.args(0)) or redirect(URL('index'))

@@ -22,18 +22,21 @@ pass
 <th>{{=T('Item Size')}}</th>
 
 {{for row in list:}}
-{{if (row.amount_closed+row.amount_closed3)<row.amount_limit1:}}
-<tr style="color:red">
-{{else:}}
-<tr style="color:black">
-{{pass}}
-<td style="text-align:left">{{=A(row.item, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
-<td>{{=row.sub_location}}</td>
-<td>{{=row.amount_closed}}</td>
-<td>{{=row.amount_closed3}}</td>
-<td>{{=row.unit_size}}</td>
-{{pass}}
-</tr>
+  {{if (row.amount_closed+row.amount_closed3)<row.amount_limit1:}}
+    <tr style="color:red">
+  {{else:}}
+    <tr style="color:black">
+  {{pass}}
+  {{if auth.has_membership("admin"):}}
+    <td style="text-align:left">{{=A(row.item, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
+  {{else:}}
+    <td>{{=row.item}}</td>
+  {{pass}}
+  <td>{{=row.sub_location}}</td>
+  <td>{{=row.amount_closed}}</td>
+  <td>{{=row.amount_closed3}}</td>
+  <td>{{=row.unit_size}}</td>
+  </tr>
 {{pass}}
 </table>
 <br /><br />

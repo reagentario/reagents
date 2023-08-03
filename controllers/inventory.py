@@ -106,7 +106,7 @@ def list_low():
     return dict(title=title, list=rows)
 
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def show():
     record = db.inventory[request.args[0]]
     if not record:
@@ -126,7 +126,7 @@ def show():
 
     return dict(title=T("Item details"), table=table, record=record)
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def plus():
     record = db.inventory[request.args[0]]
     db(db.inventory.id==request.args[0]).update(amount_closed=db.inventory.amount_closed +1)
@@ -139,7 +139,7 @@ def plus():
     return
 
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def minus():
     record = db.inventory[request.args[0]]
     if record['amount_closed'] == 0:
@@ -156,7 +156,7 @@ def minus():
     return
 
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def move():
     record = db.inventory[request.args[0]]
     if record['amount_closed3'] == 0:
@@ -174,7 +174,7 @@ def move():
     return
 
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def add():
     record = db.inventory[request.args[0]]
     db(db.inventory.id==request.args[0]).update(amount_closed3=db.inventory.amount_closed3 +1)
@@ -200,7 +200,7 @@ def order():
     return
 
 
-@auth.requires_login()
+@auth.requires_membership("manager")
 def log_note():
     record = db.inventory[request.args[0]]
     form = SQLFORM.factory(

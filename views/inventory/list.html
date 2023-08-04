@@ -27,7 +27,7 @@ pass
   {{else:}}
     <tr style="color:black">
   {{pass}}
-  {{if auth.has_membership("admin"):}}
+  {{if auth.has_membership("manager"):}}
     <td style="text-align:left">{{=A(row.item, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
   {{else:}}
     <td>{{=row.item}}</td>

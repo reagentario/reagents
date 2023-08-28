@@ -79,6 +79,7 @@
 'Authentication code': 'Authentication code',
 'Available Databases and Tables': 'Database e tabelle disponibili',
 'Back': 'Back',
+'Back to location': 'Back to location',
 "Buy web2py's book": "Buy web2py's book",
 'cache': 'cache',
 'Cache': 'Cache',

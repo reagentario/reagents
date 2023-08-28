@@ -13,6 +13,7 @@ now = datetime.datetime.now()
 
 @auth.requires_login()
 def sub_locations_content_list():
+    loc_short = request.args(0)
     query = (db.sublocations.id > 0)
     db.inventory.sub_location.requires = IS_IN_DB(db(query), db.sublocations.sub_location_short, '%(sub_location_short)s - %(sub_location)s')
 
@@ -27,6 +28,7 @@ def sub_locations_content_list():
         sub_location_exp = db(db.sublocations.sub_location_short==sub_location).select(db.sublocations.sub_location)
         rows = db(db.inventory.sub_location==sub_location).select(orderby=db.inventory.item) #,groupby=db.inventory.item)
         title = T('Sub Location: %s') % sub_location_exp[0].sub_location
+        loc_short = ""
     elif form.errors:
         session.flash=T('there are errors in submitted form')
         response.flash=form.errors
@@ -35,16 +37,12 @@ def sub_locations_content_list():
         title = ""
         rows = []
 
-    headers = [T("Name"), T("Amount"), T("Item Size")]
-    fields = ['item', 'amount_closed', 'unit_size']
+    if loc_short:
+        rows = db(db.inventory.sub_location==loc_short).select(orderby=db.inventory.item)
+    else:
+        request.args(0)==""
 
-    table = TABLE(THEAD(TR(*[B(header) for header in headers])),
-                  TBODY(*[TR(*[TD(row[field]) for field in fields]) \
-                        for row in rows]))
-    table["_class"] = "table table-striped table-bordered table-condensed"
-
-    return dict(title=title, form=form, table=table)
-
+    return dict(title=title, form=form, list=rows)
 
 
 @auth.requires_login()

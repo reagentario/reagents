@@ -1,11 +1,45 @@
 {{extend 'layout.html'}}
+<link rel="stylesheet" type="text/css" href="{{=URL('static', 'css/tables.css')}}"/>
+
 <h2>{{=title}}</h2>
 
 {{=form}}
 
 <br />
 
-{{=table}}
+<h5>
+{{
+if user_alias_name == None:
+response.write(T('You have not logged in'))
+else:
+pass
+}}
+</h5>
+<br>
 
-<br />
-<br />
+<table class="table-2">
+<th>{{=T('Item')}}</th>
+<th>{{=T('Location')}}</th>
+<th>{{=T('Amount')}}</th>
+<th>{{=T('Amount in warehouse')}}</th>
+<th>{{=T('Item Size')}}</th>
+
+{{for row in list:}}
+  {{if (row.amount_closed+row.amount_closed3)<row.amount_limit1:}}
+    <tr style="color:red">
+  {{else:}}
+    <tr style="color:black">
+  {{pass}}
+  {{if auth.has_membership("manager"):}}
+    <td style="text-align:left">{{=A(row.item, _href=URL(c='inventory', r=request,  f='show', args=row.id))}}</td>
+  {{else:}}
+    <td>{{=row.item}}</td>
+  {{pass}}
+  <td>{{=row.sub_location}}</td>
+  <td>{{=row.amount_closed}}</td>
+  <td>{{=row.amount_closed3}}</td>
+  <td>{{=row.unit_size}}</td>
+  </tr>
+{{pass}}
+</table>
+<br /><br />
